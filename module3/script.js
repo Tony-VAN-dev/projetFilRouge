@@ -59,7 +59,7 @@ console.log(`${messageBienvenue} ${messageBienvenue2} ${longueurSlogan} ${slogan
 
 
 // - Créer une variable contenant un prix HT d’exemple
-let HT = 499;
+let HT = 49900000;
 
 // - Créer une variable contenant le taux de TVA
 //   (par exemple 0.2 pour 20%)
