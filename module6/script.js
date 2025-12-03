@@ -281,3 +281,19 @@ productList.innerHTML = "";
 const card = createFeaturedProductCard();
 productList.appendChild(card);
 //   (indice : même méthode que pour assembler les éléments dans la carte)
+
+// exo 6
+let productNames = ["Luffy", "Mario", "Luigi"];
+let productPricesHT = [99,30,37];
+console.log("Longueur du tableau : " + productNames.length);
+
+function displayProductsInConsole(){
+  for(let i = 0 ; i < productNames.length ; i++)
+  {
+    let prixTTC_produit = calculatePriceTTC(productPricesHT[i]);
+    prixTTC_produit = formatPrice(prixTTC_produit);
+    console.log(`Produit ${i} : ${productNames[i]} - ${prixTTC_produit} TTC`);
+  }
+}
+
+displayProductsInConsole();
