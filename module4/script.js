@@ -131,7 +131,7 @@ let sloganModified = slogan.replace("goodies", "trésors");
 
 let examplePriceHT = 20;
 
-let examplePriceTTC = examplePriceHT + (examplePriceHT * TVA);
+let examplePriceTTC = examplePriceHT + (examplePriceHT * 0.2);
 
 console.log("Prix HT exemple :", examplePriceHT);
 console.log("Prix TTC exemple :", examplePriceTTC);
