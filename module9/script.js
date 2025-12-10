@@ -179,8 +179,14 @@ const products = [
 
 const productListSection = document.getElementById("product-list");
 
-function createProductCard(product) {
-    let boutonAjouterAuPanier = document.createElement("button");
+function createProductCard(product) { //product c'est le tableau d'objets
+  let boutonAjouterAuPanier = document.createElement("button"); // création du bouton
+  boutonAjouterAuPanier.textContent = "Ajouter au panier";
+  boutonAjouterAuPanier.classList.add("btn-add");
+  boutonAjouterAuPanier.addEventListener("click", function(){
+    addToCart(product);
+  });
+
   const article = document.createElement("article");
   article.classList.add("product-card");
 
@@ -211,16 +217,16 @@ function createProductCard(product) {
   return article;
 }
 
-function displayProductsInPage() {
-  if (!productListSection) return;
+// function displayProductsInPage() {
+//   if (!productListSection) return;
 
-  productListSection.innerHTML = "";
+//   productListSection.innerHTML = "";
 
-  for (const product of products) {
-    const card = createProductCard(product);
-    productListSection.appendChild(card);
-  }
-}
+//   for (const product of products) {
+//     const card = createProductCard(product);
+//     productListSection.appendChild(card);
+//   }
+// }
 
 displayProductsInPage();
 
@@ -274,6 +280,8 @@ function updateCartDisplay() {
   if (cartMessage) {
     cartMessage.textContent = getCartMessage(cartTotal);
   }
+
+
 }
 
 /* 5) Tests simples à faire à la main
@@ -305,14 +313,23 @@ updateCartDisplay();
 
 //fonction
 function addToCart(product){
-    cartTotal = calculatePriceTTC(product.priceHT);
+    cartTotal += calculatePriceTTC(product.priceHT);
     cartItemCount++;
+    console.log(cartTotal);
     updateCartDisplay();
 }
 
+function displayProductsInPage() {
+  if (!productListSection) return;
 
-
-
+  productListSection.innerHTML = "";
+  for(let e of products){
+    let returnedProduct = createProductCard(e)
+    productListSection.appendChild(returnedProduct);
+  }
+}
+displayProductsInPage();
+updateCartDisplay();
 
 
 
